@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/ui/container";
@@ -55,41 +56,50 @@ export default function ServiceDetailPage({ params }: Props) {
                         </p>
 
                         <div className="aspect-video w-full bg-muted mb-16 relative overflow-hidden rounded-sm">
-                            <div className="absolute inset-0 bg-gradient-to-tr from-background/10 to-background/5" />
-                            <div className="absolute inset-0 flex items-center justify-center text-muted-foreground/30 font-light text-xl">
-                                Service Image Placeholder
-                            </div>
+                            <Image
+                                src={
+                                    params.slug === 'motorized-shades' ? '/images/shades.png' :
+                                        params.slug === 'custom-doors' ? '/images/door.png' :
+                                            params.slug === 'driveway-gates' ? '/images/gate.png' :
+                                                '/images/special.png'
+                                }
+                                alt={service.title}
+                                fill
+                                className="object-cover"
+                                priority
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-tr from-background/20 to-transparent mix-blend-multiply" />
                         </div>
+                    </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-16">
-                            <div>
-                                <h3 className="text-xl font-medium mb-6">Capabilities</h3>
-                                <ul className="space-y-4">
-                                    {service.features.map(f => (
-                                        <li key={f} className="flex items-start text-muted-foreground">
-                                            <span className="mr-4 mt-2 h-px w-4 bg-primary/50 block" />
-                                            {f}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                            <div>
-                                <h3 className="text-xl font-medium mb-6">Our Approach</h3>
-                                <p className="text-muted-foreground leading-relaxed mb-6">
-                                    Every {service.title.toLowerCase()} project begins with an on-site consultation to understand mechanical constraints and aesthetic goals. We handle everything from procurement to final programming.
-                                </p>
-                            </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-16">
+                        <div>
+                            <h3 className="text-xl font-medium mb-6">Capabilities</h3>
+                            <ul className="space-y-4">
+                                {service.features.map(f => (
+                                    <li key={f} className="flex items-start text-muted-foreground">
+                                        <span className="mr-4 mt-2 h-px w-4 bg-primary/50 block" />
+                                        {f}
+                                    </li>
+                                ))}
+                            </ul>
                         </div>
+                        <div>
+                            <h3 className="text-xl font-medium mb-6">Our Approach</h3>
+                            <p className="text-muted-foreground leading-relaxed mb-6">
+                                Every {service.title.toLowerCase()} project begins with an on-site consultation to understand mechanical constraints and aesthetic goals. We handle everything from procurement to final programming.
+                            </p>
+                        </div>
+                    </div>
 
-                        <div className="border-t border-border/20 pt-12 flex flex-col items-center text-center">
-                            <h2 className="text-3xl font-heading font-light mb-6">Ready to discuss your project?</h2>
-                            <Button size="lg" asChild>
-                                <Link href="/apply">Start Consultation</Link>
-                            </Button>
-                        </div>
+                    <div className="border-t border-border/20 pt-12 flex flex-col items-center text-center">
+                        <h2 className="text-3xl font-heading font-light mb-6">Ready to discuss your project?</h2>
+                        <Button size="lg" asChild>
+                            <Link href="/apply">Start Consultation</Link>
+                        </Button>
                     </div>
                 </Container>
             </Section>
-        </main>
+        </main >
     );
 }

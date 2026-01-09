@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
 
@@ -17,10 +18,12 @@ export default function AboutPage() {
                                 Intentional work.
                             </h1>
                             <div className="aspect-square bg-muted relative overflow-hidden mb-12">
-                                <div className="absolute inset-0 bg-gradient-to-br from-neutral-200 to-neutral-300" />
-                                <div className="absolute inset-0 flex items-center justify-center text-muted-foreground/30 font-light text-xl">
-                                    Portrait / Studio Image
-                                </div>
+                                <Image
+                                    src="/images/special.png"
+                                    alt="Studio detail"
+                                    fill
+                                    className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                                />
                             </div>
                         </div>
                         <div className="md:w-1/2 flex flex-col justify-center space-y-8">

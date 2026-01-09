@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
 import { Button } from "@/components/ui/button";
@@ -30,9 +31,14 @@ export default function CaseStudyTemplate() {
                     </p>
 
                     {/* Main Hero Image */}
-                    <div className="aspect-[21/9] bg-muted w-full mb-16 rounded-sm relative overflow-hidden">
-                        <div className="absolute inset-0 bg-neutral-200" />
-                        <div className="absolute inset-0 flex items-center justify-center text-muted-foreground/30 text-xl font-light">Hero Image</div>
+                    <div className="aspect-[21/9] bg-muted w-full mb-16 rounded-sm relative overflow-hidden block">
+                        <Image
+                            src="/images/lake.png"
+                            alt="Lakeside automation project hero"
+                            fill
+                            className="object-cover"
+                            priority
+                        />
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">

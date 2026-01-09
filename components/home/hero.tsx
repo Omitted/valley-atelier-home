@@ -1,13 +1,21 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
+import Image from "next/image";
 
 export function Hero() {
     return (
         <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-background">
-            {/* Abstract Background Placeholder */}
+            {/* Background Image */}
             <div className="absolute inset-0 z-0">
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-secondary via-background to-background opacity-70" />
+                <Image
+                    src="/images/hero.png"
+                    alt="Minimalist luxury living room"
+                    fill
+                    className="object-cover opacity-90"
+                    priority
+                />
+                <div className="absolute inset-0 bg-background/30 backdrop-blur-[2px]" />
             </div>
 
             <Container className="relative z-10 flex flex-col items-center text-center max-w-4xl">

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 export function ProjectsPreview() {
     return (
@@ -20,20 +21,30 @@ export function ProjectsPreview() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="aspect-[4/3] bg-muted relative group overflow-hidden">
-                        {/* Placeholder for project image */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-neutral-200 to-neutral-300 group-hover:scale-105 transition-transform duration-700" />
-                        <div className="absolute bottom-6 left-6">
-                            <h3 className="text-lg font-medium text-slate-800">Lakeside automation</h3>
-                            <p className="text-sm text-slate-600">Guntersville, AL</p>
+                    <Link href="/projects/template" className="aspect-[4/3] bg-muted relative group overflow-hidden block">
+                        <Image
+                            src="/images/lake.png"
+                            alt="Lakeside automation"
+                            fill
+                            className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
+                        <div className="absolute bottom-6 left-6 text-white">
+                            <h3 className="text-lg font-medium drop-shadow-md">Lakeside Automation</h3>
+                            <p className="text-sm opacity-90 drop-shadow-md">Guntersville, AL</p>
                         </div>
-                    </div>
+                    </Link>
                     <div className="aspect-[4/3] bg-muted relative group overflow-hidden">
-                        {/* Placeholder for project image */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-slate-200 to-slate-300 group-hover:scale-105 transition-transform duration-700" />
-                        <div className="absolute bottom-6 left-6">
-                            <h3 className="text-lg font-medium text-slate-800">Mountain Brook Entry</h3>
-                            <p className="text-sm text-slate-600">Birmingham, AL</p>
+                        <Image
+                            src="/images/door.png"
+                            alt="Mountain Brook Entry"
+                            fill
+                            className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
+                        <div className="absolute bottom-6 left-6 text-white">
+                            <h3 className="text-lg font-medium drop-shadow-md">Mountain Brook Entry</h3>
+                            <p className="text-sm opacity-90 drop-shadow-md">Birmingham, AL</p>
                         </div>
                     </div>
                 </div>
