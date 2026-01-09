@@ -5,7 +5,6 @@ import { ProcessPreview } from "@/components/home/process-preview";
 import { ProjectsPreview } from "@/components/home/projects-preview";
 import { Testimonials } from "@/components/home/testimonials";
 import { CtaBand } from "@/components/home/cta-band";
-import { VariantSwitcher } from "@/components/variant-switcher";
 
 export default function Home() {
   return (
@@ -17,9 +16,6 @@ export default function Home() {
       <ProjectsPreview />
       <Testimonials />
       <CtaBand />
-
-      {/* For Design Review Purpose Only */}
-      <VariantSwitcher />
     </main>
   );
 }
