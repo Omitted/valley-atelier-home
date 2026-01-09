@@ -7,20 +7,21 @@ import { Button } from "@/components/ui/button";
 import { services } from "@/lib/data";
 
 interface Props {
-    params: {
+    params: Promise<{
         slug: string;
-    };
+    }>;
 }
 
 // Generate static params for all services
-export function generateStaticParams() {
+export async function generateStaticParams() {
     return services.map((service) => ({
         slug: service.slug,
     }));
 }
 
-export function generateMetadata({ params }: Props) {
-    const service = services.find((s) => s.slug === params.slug);
+export async function generateMetadata({ params }: Props) {
+    const { slug } = await params;
+    const service = services.find((s) => s.slug === slug);
     if (!service) return { title: "Service Not Found" };
     return {
         title: `${service.title} | Valley Atelier Home`,
@@ -28,8 +29,9 @@ export function generateMetadata({ params }: Props) {
     };
 }
 
-export default function ServiceDetailPage({ params }: Props) {
-    const service = services.find((s) => s.slug === params.slug);
+export default async function ServiceDetailPage({ params }: Props) {
+    const { slug } = await params;
+    const service = services.find((s) => s.slug === slug);
 
     if (!service) {
         notFound();
@@ -58,9 +60,9 @@ export default function ServiceDetailPage({ params }: Props) {
                         <div className="aspect-video w-full bg-muted mb-16 relative overflow-hidden rounded-sm">
                             <Image
                                 src={
-                                    params.slug === 'motorized-shades' ? '/images/shades.jpg' :
-                                        params.slug === 'custom-doors' ? '/images/door.jpg' :
-                                            params.slug === 'driveway-gates' ? '/images/gate.jpg' :
+                                    slug === 'motorized-shades' ? '/images/shades.jpg' :
+                                        slug === 'custom-doors' ? '/images/door.jpg' :
+                                            slug === 'driveway-gates' ? '/images/gate.jpg' :
                                                 '/images/special.jpg'
                                 }
                                 alt={service.title}
