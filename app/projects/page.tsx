@@ -51,6 +51,27 @@ export default function ProjectsPage() {
                                 location: "Madison, AL",
                                 image: "/images/special.jpg",
                                 description: "Secret door automation disguised as a bookshelf, revealing a private lounge and workspace."
+                            },
+                            {
+                                id: 5,
+                                title: "Master Bath Retreat",
+                                location: "Athens, AL",
+                                image: "/images/tile.jpg",
+                                description: "Custom heated tile flooring and automated privacy glass integration for a luxury spa bathroom."
+                            },
+                            {
+                                id: 6,
+                                title: "Whole-Home Intelligence",
+                                location: "Jones Valley, AL",
+                                image: "/images/smart-home.jpg",
+                                description: "Seamless integration of lighting, climate, and AV systems controlled via discrete architectural keypads."
+                            },
+                            {
+                                id: 7,
+                                title: "Perimeter Vision",
+                                location: "Lake Guntersville, AL",
+                                image: "/images/camera.jpg",
+                                description: "AI-enhanced outdoor security monitoring with unobtrusive thermal and optical cameras."
                             }
                         ].map((project) => (
                             <Link key={project.id} href="/projects/template" className="group block">
