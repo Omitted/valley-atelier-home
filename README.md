@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Valley Atelier Home
+
+An ultra-minimal modern luxury website for a high-end residential installation studio.
 
 ## Getting Started
 
-First, run the development server:
+1. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+2. **Run the development server**:
+   ```bash
+   npm run dev
+   ```
+   Open [http://localhost:3000](http://localhost:3000) with your browser.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `app/`: Next.js App Router pages.
+- `components/`:
+  - `home/`: Homepage specific sections.
+  - `layout/`: Navbar and Footer.
+  - `ui/`: Reusable foundation components (Button, Container, Section).
+- `lib/`: Utilities and data.
+  - `data.ts`: Centralized service data.
+  - `design-tokens.ts`: Reference for colors/spacing.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Customization Guide
 
-## Learn More
+### Swapping Images
+Currently, the site uses CSS gradients as placeholders. To add real images:
+1. Place your images in the `public/` folder.
+2. Open the component (e.g., `components/home/hero.tsx`).
+3. Import `Image` from `next/image`.
+4. Replace the `<div className="absolute inset-0 bg-..." />` with `<Image src="/your-image.jpg" fill className="object-cover" alt="..." />`.
 
-To learn more about Next.js, take a look at the following resources:
+### Adding a New Project
+1. Open `app/projects/page.tsx`.
+2. The projects are currently a map of numbers `[1, 2, 3...]`.
+3. Create an array of project objects similar to `lib/data.ts` or fetch from a CMS.
+4. Use the `CaseStudyTemplate` at `app/projects/template/page.tsx` as a base for individual project details.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Adjusting Accent Colors
+The design system uses CSS variables in `app/globals.css`.
+- To change the **Cold** (default) accent, modify `--primary` and `--foreground` under `:root`.
+- To change the **Warm** accent, modify `--primary` and `--foreground` under `.theme-warm`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Variant Review
+A `VariantSwitcher` component is enabled on the homepage bottom-right corner. You can remove it from `app/page.tsx` when ready for production.
