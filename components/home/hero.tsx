@@ -9,7 +9,7 @@ export function Hero() {
             {/* Background Image */}
             <div className="absolute inset-0 z-0">
                 <Image
-                    src="/images/hero.png"
+                    src="/images/hero.jpg"
                     alt="Minimalist luxury living room"
                     fill
                     className="object-cover opacity-90"

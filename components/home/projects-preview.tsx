@@ -23,7 +23,7 @@ export function ProjectsPreview() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <Link href="/projects/template" className="aspect-[4/3] bg-muted relative group overflow-hidden block">
                         <Image
-                            src="/images/lake.png"
+                            src="/images/lake.jpg"
                             alt="Lakeside automation"
                             fill
                             className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -36,7 +36,7 @@ export function ProjectsPreview() {
                     </Link>
                     <div className="aspect-[4/3] bg-muted relative group overflow-hidden">
                         <Image
-                            src="/images/door.png"
+                            src="/images/door.jpg"
                             alt="Mountain Brook Entry"
                             fill
                             className="object-cover transition-transform duration-700 group-hover:scale-105"

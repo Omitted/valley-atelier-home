@@ -19,7 +19,7 @@ export default function AboutPage() {
                             </h1>
                             <div className="aspect-square bg-muted relative overflow-hidden mb-12">
                                 <Image
-                                    src="/images/special.png"
+                                    src="/images/special.jpg"
                                     alt="Studio detail"
                                     fill
                                     className="object-cover grayscale hover:grayscale-0 transition-all duration-700"

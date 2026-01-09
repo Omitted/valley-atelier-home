@@ -58,10 +58,10 @@ export default function ServiceDetailPage({ params }: Props) {
                         <div className="aspect-video w-full bg-muted mb-16 relative overflow-hidden rounded-sm">
                             <Image
                                 src={
-                                    params.slug === 'motorized-shades' ? '/images/shades.png' :
-                                        params.slug === 'custom-doors' ? '/images/door.png' :
-                                            params.slug === 'driveway-gates' ? '/images/gate.png' :
-                                                '/images/special.png'
+                                    params.slug === 'motorized-shades' ? '/images/shades.jpg' :
+                                        params.slug === 'custom-doors' ? '/images/door.jpg' :
+                                            params.slug === 'driveway-gates' ? '/images/gate.jpg' :
+                                                '/images/special.jpg'
                                 }
                                 alt={service.title}
                                 fill

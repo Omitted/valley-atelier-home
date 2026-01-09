@@ -33,7 +33,7 @@ export default function CaseStudyTemplate() {
                     {/* Main Hero Image */}
                     <div className="aspect-[21/9] bg-muted w-full mb-16 rounded-sm relative overflow-hidden block">
                         <Image
-                            src="/images/lake.png"
+                            src="/images/lake.jpg"
                             alt="Lakeside automation project hero"
                             fill
                             className="object-cover"
