@@ -58,12 +58,50 @@ export function ApplyForm() {
         else if (step === "contact") setStep("details");
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        // Simulate submission
-        setTimeout(() => {
-            setStep("success");
-        }, 500);
+        setIsSubmitting(true);
+
+        const payload = {
+            fit: {
+                serviceArea: formData.serviceArea,
+                projectType: formData.projectCategory,
+                timeline: formData.timeline,
+                budget: formData.investment,
+            },
+            details: {
+                address: formData.address,
+                notes: formData.notes,
+            },
+            contact: {
+                name: formData.name,
+                email: formData.email,
+                phone: formData.phone,
+            },
+        };
+
+        try {
+            const response = await fetch('/api/apply', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(payload),
+            });
+
+            if (response.ok) {
+                setStep("success");
+            } else {
+                alert("Something went wrong. Please try again.");
+            }
+        } catch (error) {
+            console.error(error);
+            alert("Error submitting form.");
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     if (step === "success") {
@@ -279,8 +317,8 @@ export function ApplyForm() {
                             <Button type="button" variant="ghost" onClick={prevStep}>
                                 <ChevronLeft className="mr-2 h-4 w-4" /> Back
                             </Button>
-                            <Button type="submit" disabled={!formData.consent || !formData.name || !formData.email}>
-                                Submit Application
+                            <Button type="submit" disabled={!formData.consent || !formData.name || !formData.email || isSubmitting}>
+                                {isSubmitting ? "Sending..." : "Submit Application"}
                             </Button>
                         </div>
                     </div>
