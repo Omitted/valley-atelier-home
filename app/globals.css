@@ -1,56 +1,104 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-outfit);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --animate-fade-in-up: fade-in-up 0.5s ease-out forwards;
+}
 
 @layer base {
   :root {
-    /* Base - Cold/Technical (Default) */
-    --background: 0 0% 100%;
-    /* White */
-    --foreground: 215 20% 15%;
-    /* Slate 900 */
+    /* Cold/Technical (Default) */
+    --background: hsl(0 0% 100%);
+    --foreground: hsl(215 20% 15%);
 
-    --primary: 215 20% 15%;
-    /* Slate 900 */
-    --primary-foreground: 0 0% 100%;
+    --primary: hsl(215 20% 15%);
+    --primary-foreground: hsl(0 0% 100%);
 
-    --secondary: 210 10% 96%;
-    /* Slate 50 */
-    --secondary-foreground: 215 20% 15%;
+    --secondary: hsl(210 10% 96%);
+    --secondary-foreground: hsl(215 20% 15%);
 
-    --muted: 210 10% 90%;
-    /* Slate 200 */
-    --muted-foreground: 215 15% 40%;
-    /* Slate 500 */
+    --muted: hsl(210 10% 90%);
+    --muted-foreground: hsl(215 15% 40%);
 
-    --accent: 210 20% 98%;
-    /* Very light slate */
+    --accent: hsl(210 20% 98%);
+    --accent-foreground: hsl(215 20% 15%);
+    /* Added for completeness */
+
+    --border: hsl(215 20% 90%);
+    /* Added missing border var */
+    --input: hsl(215 20% 90%);
+    --ring: hsl(215 20% 15%);
 
     --radius: 0.25rem;
   }
 
   .theme-warm {
     /* Warm/Organic Variant */
-    --background: 30 15% 98%;
-    /* Warm off-white */
-    --foreground: 30 10% 15%;
-    /* Warm dark grey */
+    --background: hsl(30 15% 98%);
+    --foreground: hsl(30 10% 15%);
 
-    --primary: 30 10% 15%;
-    --primary-foreground: 30 15% 98%;
+    --primary: hsl(30 10% 15%);
+    --primary-foreground: hsl(30 15% 98%);
 
-    --secondary: 30 10% 94%;
-    --secondary-foreground: 30 10% 15%;
+    --secondary: hsl(30 10% 94%);
+    --secondary-foreground: hsl(30 10% 15%);
 
-    --muted: 30 10% 88%;
-    --muted-foreground: 30 5% 40%;
+    --muted: hsl(30 10% 88%);
+    --muted-foreground: hsl(30 5% 40%);
 
-    --accent: 30 15% 96%;
+    --accent: hsl(30 15% 96%);
+    --accent-foreground: hsl(30 10% 15%);
+
+    --border: hsl(30 10% 88%);
+    --input: hsl(30 10% 88%);
+    --ring: hsl(30 10% 15%);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
 
-  body {
-    @apply antialiased;
-    color: hsl(var(--foreground));
-    background-color: hsl(var(--background));
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
+}
+
+/* Ensure body uses the variables */
+body {
+  @apply antialiased bg-background text-foreground;
 }
