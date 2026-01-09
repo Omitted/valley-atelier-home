@@ -3,28 +3,7 @@ import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
 import { ArrowRight } from "lucide-react";
 
-const services = [
-    {
-        title: "Motorized Shades",
-        description: "Precise measurement and installation of Lutron and other premium automated shading systems.",
-        href: "/services/motorized-shades",
-    },
-    {
-        title: "Custom Doors",
-        description: "Architectural door systems sourced and installed with exacting attention to detail.",
-        href: "/services/custom-doors",
-    },
-    {
-        title: "Driveway Gates",
-        description: "Secure, automated entry solutions designed to complement your property's aesthetic.",
-        href: "/services/driveway-gates",
-    },
-    {
-        title: "Special Projects",
-        description: "Bespoke residential upgrades requiring technical expertise and a curator's eye.",
-        href: "/services/special-projects",
-    },
-];
+import { services } from "@/lib/data";
 
 export function ServicesPreview() {
     return (
@@ -51,15 +30,15 @@ export function ServicesPreview() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {services.map((service) => (
                         <Link
-                            key={service.title}
-                            href={service.href}
+                            key={service.slug}
+                            href={`/services/${service.slug}`}
                             className="group flex flex-col justify-between p-8 bg-background border border-border/40 hover:border-primary/20 hover:shadow-lg transition-all duration-500 aspect-[4/5] md:aspect-auto md:h-80"
                         >
                             <div>
                                 <h3 className="text-xl font-heading font-light mb-3 text-primary group-hover:text-primary/80 transition-colors">
                                     {service.title}
                                 </h3>
-                                <p className="text-sm text-muted-foreground leading-relaxed">
+                                <p className="text-sm text-muted-foreground leading-relaxed line-clamp-4">
                                     {service.description}
                                 </p>
                             </div>

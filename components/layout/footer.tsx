@@ -30,7 +30,7 @@ export function Footer() {
                         <h4 className="font-medium mb-4">Support</h4>
                         <div className="flex flex-col gap-3 text-sm text-muted-foreground">
                             <Link href="/faq" className="hover:text-primary transition-colors">FAQ</Link>
-                            <Link href="/contact" className="hover:text-primary transition-colors">Contact</Link>
+                            <Link href="/apply" className="hover:text-primary transition-colors">Contact</Link>
                             <Link href="/apply" className="hover:text-primary transition-colors">Apply for a Project</Link>
                         </div>
                     </div>
